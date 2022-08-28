@@ -1,9 +1,6 @@
 import Stripe from 'stripe';
-import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
-
-dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 	apiVersion: '2020-08-27'
@@ -12,54 +9,17 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 const plans = [
 	{
 		product: {
-			name: 'Free Plan',
-			description: 'The bare minimum.'
+			name: 'Standard Plan',
+			description: 'Best cost-benefit ever.'
 		},
 		price: {
 			currency: 'usd',
-			unit_amount: 0,
+			unit_amount: 500,
 			recurring: {
 				interval: 'month'
 			}
 		},
-		includes: [
-			'A number starting at 0',
-			'A "plus" button',
-			'A "minus" button',
-			'Infinite button clicks'
-		]
-	},
-	{
-		product: {
-			name: 'Basic Plan',
-			description: 'The basic services.'
-		},
-		price: {
-			currency: 'usd',
-			unit_amount: 1000,
-			recurring: {
-				interval: 'month'
-			}
-		},
-		includes: [
-			'All the features in the free plan.',
-			'You get to pay money for it.',
-			'Lifetime support'
-		]
-	},
-	{
-		product: {
-			name: 'Premium Plan',
-			description: 'Everything in the basic plan and then some.'
-		},
-		price: {
-			currency: 'usd',
-			unit_amount: 1500,
-			recurring: {
-				interval: 'month'
-			}
-		},
-		includes: ['All the features of the basic plan', 'A sense of superiority', 'Nothing else']
+		includes: ['100 job applications/month', 'Support via email/discord']
 	}
 ];
 

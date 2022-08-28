@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { getContext } from 'svelte';
 
-	const { getStripe } = getContext('stripe');
+	const getStripe = getContext('getStripe');
 	const stripe = getStripe();
 
 	export let plans = [];
@@ -13,8 +13,6 @@
 
 	async function choosePlan(plan) {
 		if (plan.price.id) {
-			console.log(JSON.stringify({ priceId: plan.price.id }));
-
 			const res = await fetch('/stripe/checkout-session', {
 				method: 'POST',
 				headers: {
@@ -23,11 +21,10 @@
 				body: JSON.stringify({ priceId: plan.price.id })
 			});
 			const { sessionId } = await res.json();
+			console.log(sessionId);
 			stripe.redirectToCheckout({
 				sessionId
 			});
-		} else {
-			goto('/counter');
 		}
 	}
 </script>

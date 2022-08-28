@@ -2,30 +2,33 @@
 	"name": "sveltekit-stripe",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"start": "svelte-kit start",
-		"stripe:init": "node scripts/createProductsOnStripe.js",
+		"dev": "env-cmd vite dev",
+		"build": "env-cmd vite build",
+		"start": "env-cmd vite start",
+		"stripe:init": "env-cmd node scripts/createProductsOnStripe.js",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@stripe/stripe-js": "1.32.0",
-		"@sveltejs/adapter-node": "next",
-		"@sveltejs/kit": "1.0.0-next.352",
-		"@types/cookie": "0.5.1",
-		"prettier": "2.7.1",
-		"prettier-plugin-svelte": "2.7.0",
-		"svelte": "3.48.0",
-		"svelte-preprocess": "4.10.7",
-		"tslib": "2.4.0",
-		"typescript": "4.7.4"
+		"@stripe/stripe-js": "*",
+		"@sveltejs/adapter-cloudflare": "^1.0.0-next.32",
+		"@sveltejs/adapter-node": "*",
+		"@sveltejs/kit": "*",
+		"@types/cookie": "*",
+		"esbuild-plugin-node-polyfills": "^1.0.2",
+		"prettier": "*",
+		"prettier-plugin-svelte": "*",
+		"svelte": "*",
+		"svelte-preprocess": "*",
+		"tslib": "*",
+		"typescript": "*",
+		"vite": "*"
 	},
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fira-mono": "4.5.8",
-		"nanoid": "4.0.0",
 		"cookie": "0.5.0",
-		"dotenv": "16.0.1",
-		"stripe": "9.11.0"
+		"env-cmd": "^10.1.0",
+		"nanoid": "4.0.0",
+		"stripe": "10.6.0"
 	}
 }

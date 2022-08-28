@@ -16,8 +16,8 @@
 		</svg>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Pricing</a></li>
-			<li class:active={$page.url.pathname === '/counter'}>
-				<a sveltekit:prefetch href="/counter">Counter</a>
+			<li class:active={$page.url.pathname === '/about'}>
+				
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">

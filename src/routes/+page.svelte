@@ -1,25 +1,9 @@
-<script context="module" lang="ts">
-	//	export const prerender = true;
-
-	export async function load({ fetch }) {
-		const res = await fetch('/plans.json');
-		let plans = [];
-		if (res.ok) plans = await res.json();
-
-		return {
-			status: 200,
-			props: {
-				plans: plans
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
+	//	export const prerender = true;
 	import Pricing from '$lib/Pricing/index.svelte';
 	import StripeProvider from '$lib/stripe/StripeProvider.svelte';
 
-	export let plans;
+	export let data;
 </script>
 
 <svelte:head>
@@ -28,8 +12,8 @@
 
 <StripeProvider>
 	<section>
-		<h2>Choose your plan and start counting!</h2>
-		<Pricing {plans} />
+		<h2>Choose your plan and start receiving job applications!</h2>
+		<Pricing plans={data.plans} />
 	</section>
 </StripeProvider>
 
