@@ -2,10 +2,10 @@
 	"name": "sveltekit-stripe",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "env-cmd vite dev",
-		"build": "env-cmd vite build",
-		"start": "env-cmd vite start",
-		"stripe:init": "env-cmd node scripts/createProductsOnStripe.js",
+		"dev": "env-cmd --silent vite dev",
+		"build": "env-cmd --silent vite build",
+		"start": "env-cmd --silent vite start",
+		"stripe:init": "env-cmd --silent node scripts/createProductsOnStripe.js",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
